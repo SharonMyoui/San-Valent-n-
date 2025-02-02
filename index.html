@@ -3,11 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi Página de San Valentín</title>
+    <title>Una Pregunta Especial</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            background-color: #ffebf0;
+            color: #d63384;
+            padding: 50px;
+        }
+        h1 {
+            font-size: 36px;
+            margin-bottom: 30px;
+        }
+        #pregunta {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 18px;
+            border: none;
+            cursor: pointer;
+            background-color: #ff4081;
+            color: white;
+            border-radius: 5px;
+            margin: 10px;
+        }
+        #respuesta {
+            font-size: 28px;
+            font-weight: bold;
+            margin-top: 20px;
+            display: none;
+        }
+        #respuesta.no {
+            color: #e74c3c;
+        }
+        #respuesta.si {
+            color: #2ecc71;
+        }
+    </style>
 </head>
 <body>
     <h1>Hola, Mi Amor 💖</h1>
-    <p>¿Quieres ser mi San Valentín? ❤️</p>
-    <button onclick="alert('¡Gracias por decir que sí!')">Sí 💖</button>
+    <p id="pregunta">Tengo una pregunta especial para ti...</p>
+    <button onclick="mostrarRespuesta('si')">Sí 💕</button>
+    <button onclick="mostrarRespuesta('no')">No 💔</button>
+    <p id="respuesta" class="si">¡Sí! Sabía que dirías que sí. 😍</p>
+    <p id="respuesta" class="no">Oh, entiendo... 😔</p>
+
+    <script>
+        function mostrarRespuesta(respuesta) {
+            // Ocultamos ambas respuestas antes de mostrar la correcta
+            document.querySelectorAll('#respuesta').forEach(function(p) {
+                p.style.display = 'none';
+            });
+            // Mostramos la respuesta correspondiente
+            if (respuesta === 'si') {
+                document.querySelector('.si').style.display = 'block';
+            } else {
+                document.querySelector('.no').style.display = 'block';
+            }
+        }
+    </script>
 </body>
 </html>
+
