@@ -16,24 +16,23 @@
             font-size: 24px;
             margin-bottom: 20px;
         }
-        .boton {
+        .botones {
+            margin-top: 20px;
+        }
+        button {
             padding: 10px 20px;
             font-size: 18px;
             border: none;
             cursor: pointer;
+            background-color: #ff4081;
+            color: white;
             border-radius: 5px;
             margin: 10px;
         }
-        #botonSi {
-            background-color: #ff4081;
-            color: white;
-        }
-        #botonNo {
-            background-color: #ccc;
-            color: black;
+        #no {
             position: absolute;
         }
-        #respuesta {
+        #mensaje {
             font-size: 28px;
             font-weight: bold;
             margin-top: 20px;
@@ -42,35 +41,29 @@
     </style>
 </head>
 <body>
-    <h1>Hola, [nombre] 💖</h1>
-    <p id="pregunta">Tengo una pregunta especial para ti...</p>
-    <button class="boton" id="mostrarOpciones" onclick="mostrarBotones()">Haz clic aquí</button>
+    <h1>Hola, Mi Amor 💖</h1>
+    <p id="pregunta">¿Quieres ser mi San Valentín? ❤️</p>
     
-    <div id="opciones" style="display: none;">
-        <button class="boton" id="botonSi" onclick="mostrarRespuesta('¡Sabía que dirías que sí! ❤️')">Sí</button>
-        <button class="boton" id="botonNo" onmouseover="moverNo()">No</button>
+    <div class="botones">
+        <button onclick="mostrarMensaje()">Sí 💕</button>
+        <button id="no" onmouseover="moverBoton()">No 💔</button>
     </div>
 
-    <p id="respuesta"></p>
+    <p id="mensaje">¡Sabía que dirías que sí! 😍💖</p>
 
     <script>
-        function mostrarBotones() {
-            document.getElementById("mostrarOpciones").style.display = "none";
-            document.getElementById("opciones").style.display = "block";
+        function mostrarMensaje() {
+            document.getElementById("mensaje").style.display = "block";
+            document.querySelector(".botones").style.display = "none";
         }
 
-        function mostrarRespuesta(mensaje) {
-            document.getElementById("respuesta").innerText = mensaje;
-            document.getElementById("respuesta").style.display = "block";
-        }
-
-        function moverNo() {
-            let botonNo = document.getElementById("botonNo");
-            let x = Math.random() * (window.innerWidth - botonNo.clientWidth);
-            let y = Math.random() * (window.innerHeight - botonNo.clientHeight);
-            botonNo.style.left = x + "px";
-            botonNo.style.top = y + "px";
+        function moverBoton() {
+            let x = Math.random() * (window.innerWidth - 100);
+            let y = Math.random() * (window.innerHeight - 50);
+            document.getElementById("no").style.left = `${x}px`;
+            document.getElementById("no").style.top = `${y}px`;
         }
     </script>
 </body>
 </html>
+
